@@ -15,7 +15,6 @@ const RefEx = () => {
       <h1>useRef Example</h1>
       <h2>refCount={refcount.current}</h2>
       <button onClick={handleIncrement}>Incerement</button>
-      
     </div>
   )
 }
