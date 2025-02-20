@@ -1,7 +1,7 @@
 const fs=require("fs");
 function myReadFile(){
     try{
-        fs.readFile("dummy.txt","utf-8",(err,data)=>{
+        fs.readFile("dummy.txt","utf8",(err,data)=>{
             if(err) throw err;
             console.log("file data:",data);
         });
@@ -23,6 +23,6 @@ function myWriteFile(data){
 }
 
 myReadFile();
-const data="my updated data";
+const data="my new updated data";
 myWriteFile(data);
 myReadFile();
