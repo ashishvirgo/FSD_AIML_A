@@ -27,6 +27,21 @@ const server=http.createServer((req,res)=>{
         res.writeHead(201,{"Content-Type":"application/json"});
         res.write(JSON.stringify({status: "success",message: "user created successfully"}));
     }
+    else if(url=="/edituser" && req.method=="POST"){
+        let body='';
+        req.on("data",(chunk)=>{
+            body+=chunk;
+        })
+        req.on("end",()=>{
+         const pareddata=JSON.parse(body);
+         const {name,email}=pareddata;
+         const newId=data.length>0?(data[data.length-1].id+1):1001;
+         const newUser={id: newId,name,email};
+         data.push(newUser);
+          })
+         res.writeHead(201,{"Content-Type":"application/json"});
+         res.write(JSON.stringify({status: "success",message: "user created successfully"})); 
+    }
     else{
         res.writeHead(404,{"Content-Type":"application/json"});
         res.write(JSON.stringify({status: "fail",message: "page not found"})); 
